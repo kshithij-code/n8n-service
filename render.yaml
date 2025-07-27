@@ -22,6 +22,14 @@ services:
     #
     # You can define additional environment variables as needed.
     envVars:
+      - key: N8N_PROTOCOL
+        value: https  # Render provides SSL by default.
+      - key: N8N_HOST
+        value: 0.0.0.0 # Binds to all network interfaces.
+      - key: WEBHOOK_URL
+        value: https://n8n-service-i7dv.onrender.com
+      - key: N8N_EDITOR_BASE_URL
+        value: https://n8n-service-i7dv.onrender.com
       # Generates a base64-encoded key for
       # encrypting credentials in n8n
       #
