@@ -1,9 +1,10 @@
-# Extend the official n8n image
 FROM n8nio/n8n:latest
 
-# Install your desired community node
-RUN npm install --omit=dev --no-audit --prefer-offline --legacy-peer-deps \
-    -g @tavily/n8n-nodes-tavily
+# Set working directory to where n8n expects custom modules
+WORKDIR /data
 
-# Rebuild to ensure the node is picked up
+# Install the Tavily node package locally
+RUN npm install @tavily/n8n-nodes-tavily --omit=dev --legacy-peer-deps
+
+# Rebuild n8n's internal node list to recognize the new package
 RUN n8n install-nodes
