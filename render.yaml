@@ -11,13 +11,12 @@ services:
   - type: web
     plan: free
     # This is the runtime for services that pull a prebuilt Docker image
-    runtime: image
-    command: "npm i -g @tavily/n8n-nodes-tavily"
+    runtime: docker
     # You can give the service any name
     name: n8n-service
     image:
       # Pulls the n8n image tagged as latest from Docker Hub
-      url: docker.io/n8nio/n8n:latest
+      url: ./Dockerfile
 
     # All environment variables defined below are required!
     #
