@@ -59,7 +59,7 @@ services:
         fromDatabase:
           name: n8n-db
           property: user
-
+    command:npm i @tavily/n8n-nodes-tavily
 databases:
   - name: n8n-db
     plan: free
